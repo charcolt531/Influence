@@ -1,5 +1,3 @@
-from dotenv import load_dotenv
-import os
 import streamlit as st
 from openai import OpenAI
 
@@ -13,8 +11,7 @@ st.set_page_config(
 )
 
 # Create the OpenAI client
-client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
-
+client = OpenAI(api_key=st.secrets["OPENAI_API_KEY"])
 # Ensure these session states exist
 if "scenario_output" not in st.session_state:
     st.session_state["scenario_output"] = None
